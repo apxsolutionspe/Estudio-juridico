@@ -1,0 +1,26 @@
+/* Design tokens and CSS custom properties */
+
+:root {
+  --black: #030712;
+  --black-soft: #05070d;
+  --navy: #071a2f;
+  --navy-deep: #0b2545;
+  --blue: #2563eb;
+  --blue-fine: #3b82f6;
+  --cyan: #38bdf8;
+  --cyan-bright: #67e8f9;
+  --white: #f8fafc;
+  --pearl: #e5e7eb;
+  --text: #94a3b8;
+  --line: rgba(148, 163, 184, 0.22);
+  --line-strong: rgba(148, 163, 184, 0.34);
+  --glass: rgba(248, 250, 252, 0.08);
+  --glass-strong: rgba(248, 250, 252, 0.12);
+  --shadow: 0 24px 70px rgba(3, 7, 18, 0.32);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --container: 1180px;
+  --header-height: 88px;
+  color-scheme: dark;
+}

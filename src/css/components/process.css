@@ -1,0 +1,12 @@
+/* Process track components */
+
+.process-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.step {
+  min-height: 275px;
+  padding: 1.25rem;
+}

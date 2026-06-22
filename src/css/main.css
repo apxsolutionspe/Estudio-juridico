@@ -1,0 +1,27 @@
+/* Main stylesheet entrypoint.
+   Import order preserves the original cascade while exposing a modular structure. */
+
+@import url("./base/variables.css");
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+
+@import url("./layout/header.css");
+@import url("./components/navigation.css");
+@import url("./components/hero.css");
+@import url("./layout/sections.css");
+@import url("./layout/grids.css");
+
+@import url("./components/cards.css");
+@import url("./components/process.css");
+@import url("./components/visual-cards.css");
+@import url("./components/faq.css");
+@import url("./components/forms.css");
+@import url("./components/floating-actions.css");
+
+@import url("./layout/footer.css");
+@import url("./layout/responsive.css");
+
+@import url("./animations/keyframes.css");
+@import url("./animations/reveal.css");
+@import url("./animations/hover.css");
+@import url("./animations/motion.css");

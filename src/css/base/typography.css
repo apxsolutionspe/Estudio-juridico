@@ -1,0 +1,52 @@
+/* Typography and shared text treatments */
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.08);
+  color: var(--cyan-bright);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-light .eyebrow {
+  background: rgba(3, 7, 18, 0.05);
+  border-color: rgba(37, 99, 235, 0.18);
+  color: var(--blue);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.4vw, 4.2rem);
+  line-height: 1;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+  color: var(--text);
+}
+
+.section-light p {
+  color: var(--navy-deep);
+}

@@ -1,0 +1,53 @@
+/* Section containers and surface variants */
+
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.section-dark {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(56, 189, 248, 0.1), transparent 24rem),
+    linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+}
+
+.section-navy {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(37, 99, 235, 0.16), transparent 26rem),
+    linear-gradient(135deg, var(--navy) 0%, var(--black) 100%);
+}
+
+.section-light {
+  color: var(--black);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(56, 189, 248, 0.12), transparent 26rem),
+    linear-gradient(180deg, var(--white) 0%, var(--pearl) 100%);
+}
+
+.section-visual {
+  background:
+    linear-gradient(180deg, var(--black) 0%, var(--navy) 54%, var(--black-soft) 100%);
+}
+
+.section-contact {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(103, 232, 249, 0.12), transparent 24rem),
+    linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 100%);
+}
+
+.section-head {
+  max-width: 780px;
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+}
+
+.section-copy {
+  max-width: 640px;
+}
+

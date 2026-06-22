@@ -1,0 +1,68 @@
+/* Microinteractions that do not control reveal visibility. */
+
+@media (hover: hover) and (pointer: fine) {
+  :is(
+    .btn,
+    .mini-btn,
+    .nav-cta,
+    .whatsapp-float,
+    .to-top,
+    .service-card a,
+    .wide-card a,
+    .flip-card-back a,
+    .footer-grid a:not(.brand)
+  ) {
+    transition:
+      transform 280ms ease,
+      box-shadow 280ms ease,
+      opacity 280ms ease,
+      filter 280ms ease,
+      color 280ms ease,
+      border-color 280ms ease,
+      background 280ms ease;
+  }
+
+  :is(.btn, .mini-btn, .nav-cta):not(.js-reveal-target):hover,
+  .js-reveal-target.is-visible:is(.btn, .mini-btn, .nav-cta):hover {
+    transform: translateY(-3px);
+    filter: brightness(1.04);
+  }
+
+  :is(.service-card a, .wide-card a, .flip-card-back a, .footer-grid a:not(.brand)):hover {
+    transform: translateX(3px);
+  }
+
+  .js-reveal-target.is-visible:is(.feature-card, .service-card, .wide-card, .step, .quote-card):hover {
+    transform: translateY(-8px);
+    border-color: rgba(103, 232, 249, 0.42);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.34),
+      0 0 36px rgba(56, 189, 248, 0.1);
+  }
+
+  .js-reveal-target.is-visible:is(.image-panel, .image-frame):hover {
+    transform: translateY(-5px);
+    border-color: rgba(103, 232, 249, 0.36);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-motion) :is(
+    .btn,
+    .mini-btn,
+    .nav-cta,
+    .feature-card,
+    .service-card,
+    .wide-card,
+    .step,
+    .quote-card,
+    .image-panel,
+    .image-frame,
+    .service-card a,
+    .wide-card a,
+    .flip-card-back a,
+    .footer-grid a:not(.brand)
+  ):hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,31 @@
+/* Accessibility motion safeguards. */
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.force-motion) *,
+  html:not(.force-motion) *::before,
+  html:not(.force-motion) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html:not(.force-motion) :is(
+    [data-animate],
+    .js-reveal-target,
+    .reveal-up,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .slide-item,
+    .motion-item,
+    .motion-card,
+    .motion-image,
+    .stagger-item
+  ) {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

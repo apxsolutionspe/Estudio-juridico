@@ -1,0 +1,38 @@
+/* Fixed header shell */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 1.1rem clamp(1rem, 4vw, 4rem);
+  animation: headerReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    padding 0.35s ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+@keyframes headerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

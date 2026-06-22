@@ -1,0 +1,87 @@
+/* Hero media and title composition */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  background: var(--black);
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(56, 189, 248, 0.06) 0%, rgba(3, 7, 18, 0.08) 38%, rgba(3, 7, 18, 0.38) 100%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.24) 0%, rgba(3, 7, 18, 0.08) 42%, rgba(3, 7, 18, 0.5) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6rem, 10vh, 8rem) clamp(1.25rem, 6vw, 7rem) clamp(3rem, 7vh, 5rem);
+  text-align: center;
+}
+
+.hero-title {
+  width: min(980px, 92vw);
+  margin: 0;
+  color: var(--white);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3.4rem, 7.8vw, 8rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 0;
+  text-shadow:
+    0 3px 18px rgba(0, 0, 0, 0.68),
+    0 14px 44px rgba(0, 0, 0, 0.48),
+    0 0 24px rgba(56, 189, 248, 0.18);
+}
+
+.hero-title span {
+  display: block;
+  opacity: 0;
+  transform: translateY(34px);
+  animation: heroTitleReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-title span:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.hero-title span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.hero-title span:nth-child(3) {
+  animation-delay: 0.38s;
+}
+
+.hero-title span:nth-child(4) {
+  animation-delay: 0.51s;
+}
+
+@keyframes heroTitleReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

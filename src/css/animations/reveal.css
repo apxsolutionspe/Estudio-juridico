@@ -1,0 +1,116 @@
+/* Single reveal layer powered by src/js/modules/animations.js. */
+
+html.js-enabled :is(
+  [data-animate],
+  .js-reveal-target,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .slide-item,
+  .motion-item,
+  .motion-card,
+  .motion-image,
+  .stagger-item
+) {
+  opacity: 0;
+  transform: translate3d(0, 84px, 0) scale(0.98);
+  filter: blur(8px);
+  transition:
+    opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--animation-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+html.js-enabled .hero-title span {
+  animation: none;
+}
+
+html.js-enabled :is([data-animate="fade-in"], .motion-item) {
+  transform: translate3d(0, 40px, 0);
+}
+
+html.js-enabled :is([data-animate="fade-up"], .reveal-up, .slide-item, .motion-card, .stagger-item) {
+  transform: translate3d(0, 84px, 0) scale(0.98);
+}
+
+html.js-enabled :is([data-animate="slide-left"], .reveal-left) {
+  transform: translate3d(-84px, 0, 0) scale(0.98);
+}
+
+html.js-enabled :is([data-animate="slide-right"], .reveal-right) {
+  transform: translate3d(84px, 0, 0) scale(0.98);
+}
+
+html.js-enabled :is([data-animate="scale-in"], .reveal-scale, .motion-image, .image-panel, .image-frame) {
+  transform: scale(0.88);
+}
+
+html.js-enabled :is(
+  [data-animate],
+  .js-reveal-target,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .slide-item,
+  .motion-item,
+  .motion-card,
+  .motion-image,
+  .stagger-item
+).is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+  will-change: auto;
+}
+
+html.js-enabled :is(
+  [data-animate],
+  .js-reveal-target,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .slide-item,
+  .motion-item,
+  .motion-card,
+  .motion-image,
+  .stagger-item
+).is-animated {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+  will-change: auto;
+}
+
+html.debug-animations .js-reveal-target {
+  outline: 2px solid red !important;
+}
+
+html.debug-animations .js-reveal-target.is-visible {
+  outline: 2px solid lime !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-enabled:not(.force-motion) :is(
+    [data-animate],
+    .js-reveal-target,
+    .reveal-up,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .slide-item,
+    .motion-item,
+    .motion-card,
+    .motion-image,
+    .stagger-item
+  ) {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
