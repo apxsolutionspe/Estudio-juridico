@@ -23,7 +23,7 @@
 }
 
 .flip-card:focus-visible {
-  outline: 3px solid rgba(103, 232, 249, 0.34);
+  outline: 3px solid rgba(72, 103, 122, 0.32);
   outline-offset: 4px;
 }
 
@@ -45,18 +45,18 @@
 .flip-card-face {
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-lg);
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   box-shadow:
-    0 22px 60px rgba(0, 0, 0, 0.35),
-    0 0 36px rgba(56, 189, 248, 0.08);
+    0 22px 52px rgba(42, 52, 68, 0.16),
+    0 0 36px rgba(11, 79, 216, 0.08);
 }
 
 .flip-card-front {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .flip-card-front img {
@@ -88,8 +88,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 70% 20%, rgba(56, 189, 248, 0.12), transparent 42%),
-    linear-gradient(180deg, transparent 20%, rgba(3, 7, 18, 0.78) 100%);
+    radial-gradient(circle at 70% 20%, rgba(11, 79, 216, 0.08), transparent 42%),
+    linear-gradient(180deg, transparent 20%, rgba(23, 32, 51, 0.74) 100%);
 }
 
 .flip-card-back {
@@ -100,13 +100,13 @@
   padding: 1.5rem;
   transform: rotateY(180deg);
   background:
-    radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.16), transparent 38%),
-    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(3, 7, 18, 0.98));
-  color: var(--white);
+    radial-gradient(circle at 80% 20%, rgba(11, 79, 216, 0.12), transparent 38%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98));
+  color: var(--color-text-primary);
 }
 
 .flip-card-back span {
-  color: var(--cyan);
+  color: var(--color-accent);
   font-weight: 900;
 }
 
@@ -115,13 +115,13 @@
 }
 
 .flip-card-back p {
-  color: var(--text);
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
 .flip-card-back a {
   width: fit-content;
-  color: var(--cyan-bright);
+  color: var(--color-accent);
   font-weight: 850;
 }
 
@@ -136,7 +136,7 @@
   height: 3px;
   margin-bottom: 1rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--cyan), var(--blue));
+  background: linear-gradient(90deg, var(--color-accent), var(--color-warm-accent));
 }
 
 .quote-card p {
@@ -150,10 +150,10 @@
 
 .quote-card strong {
   margin-top: 1.2rem;
-  color: var(--black);
+  color: var(--color-text-primary);
 }
 
 .quote-card span {
-  color: var(--navy-deep);
+  color: var(--color-text-muted);
   font-size: 0.92rem;
 }

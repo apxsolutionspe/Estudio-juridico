@@ -60,8 +60,61 @@ export function initPressedCards() {
   });
 }
 
+export function initInteractiveBenefitCards() {
+  initOverlayCards(".benefit-card--interactive");
+}
+
+export function initLegalAreaCards() {
+  initOverlayCards(".legal-area-card--interactive");
+}
+
+export function initInteractiveServiceCards() {
+  initOverlayCards(".service-card--interactive");
+}
+
+function initOverlayCards(selector) {
+  const cards = qsa(selector);
+  if (!cards.length) return;
+  const touchQuery = window.matchMedia("(hover: none)");
+  const coarseQuery = window.matchMedia("(pointer: coarse)");
+  let lastTouchToggle = 0;
+
+  const closeCards = (activeCard = null) => {
+    cards.forEach((card) => {
+      if (card !== activeCard) card.classList.remove("is-open");
+    });
+  };
+
+  const toggleCard = (card) => {
+    const isOpen = card.classList.contains("is-open");
+    closeCards(card);
+    card.classList.toggle("is-open", !isOpen);
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener("pointerup", (event) => {
+      if (event.target.closest("a")) return;
+      if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+
+      lastTouchToggle = Date.now();
+      toggleCard(card);
+    });
+
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      if (Date.now() - lastTouchToggle < 450) return;
+      if (!touchQuery.matches && !coarseQuery.matches && navigator.maxTouchPoints < 1) return;
+
+      toggleCard(card);
+    });
+  });
+}
+
 export function initCards() {
   initFlipCards();
   initImageParallax();
   initPressedCards();
+  initInteractiveBenefitCards();
+  initLegalAreaCards();
+  initInteractiveServiceCards();
 }

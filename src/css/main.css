@@ -8,10 +8,12 @@
 @import url("./layout/header.css");
 @import url("./components/navigation.css");
 @import url("./components/hero.css");
+@import url("./components/immersive-visual.css");
 @import url("./layout/sections.css");
 @import url("./layout/grids.css");
 
 @import url("./components/cards.css");
+@import url("./components/areas-explorer.css");
 @import url("./components/process.css");
 @import url("./components/visual-cards.css");
 @import url("./components/faq.css");

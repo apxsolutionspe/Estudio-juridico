@@ -1,26 +1,49 @@
 /* Design tokens and CSS custom properties */
 
 :root {
-  --black: #030712;
-  --black-soft: #05070d;
-  --navy: #071a2f;
-  --navy-deep: #0b2545;
-  --blue: #2563eb;
+  --color-bg-page: #f7f8fb;
+  --color-bg-section: #ffffff;
+  --color-bg-soft: #f1f4f8;
+  --color-bg-surface: rgba(255, 255, 255, 0.9);
+  --color-bg-surface-strong: #ffffff;
+
+  --color-text-primary: #05070d;
+  --color-text-secondary: #384250;
+  --color-text-muted: #6b7280;
+
+  --color-border-soft: rgba(15, 23, 42, 0.1);
+  --color-border-medium: rgba(15, 23, 42, 0.18);
+
+  --color-accent: #0b4fd8;
+  --color-accent-soft: rgba(11, 79, 216, 0.09);
+  --color-accent-contrast: #f8fafc;
+  --color-warm-accent: #0a2540;
+  --color-warm-soft: rgba(11, 79, 216, 0.08);
+
+  --color-footer-bg: #050b16;
+  --color-footer-surface: rgba(15, 23, 42, 0.54);
+  --color-footer-text: #e2e8f0;
+
+  --black: #05070d;
+  --black-soft: #f7f8fb;
+  --navy: #eef4ff;
+  --navy-deep: #06162f;
+  --blue: var(--color-accent);
   --blue-fine: #3b82f6;
-  --cyan: #38bdf8;
-  --cyan-bright: #67e8f9;
-  --white: #f8fafc;
-  --pearl: #e5e7eb;
-  --text: #94a3b8;
-  --line: rgba(148, 163, 184, 0.22);
-  --line-strong: rgba(148, 163, 184, 0.34);
-  --glass: rgba(248, 250, 252, 0.08);
-  --glass-strong: rgba(248, 250, 252, 0.12);
-  --shadow: 0 24px 70px rgba(3, 7, 18, 0.32);
+  --cyan: #2f7df6;
+  --cyan-bright: #0b4fd8;
+  --white: #ffffff;
+  --pearl: #f1f4f8;
+  --text: var(--color-text-secondary);
+  --line: var(--color-border-soft);
+  --line-strong: var(--color-border-medium);
+  --glass: rgba(255, 255, 255, 0.68);
+  --glass-strong: rgba(255, 255, 255, 0.9);
+  --shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
   --container: 1180px;
   --header-height: 88px;
-  color-scheme: dark;
+  color-scheme: light;
 }

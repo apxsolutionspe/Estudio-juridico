@@ -7,20 +7,21 @@
   gap: 0.45rem;
   margin-bottom: 1rem;
   padding: 0.42rem 0.72rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color-border-soft);
   border-radius: 999px;
-  background: rgba(248, 250, 252, 0.08);
-  color: var(--cyan-bright);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-accent);
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0;
   text-transform: uppercase;
+  box-shadow: 0 10px 28px rgba(42, 52, 68, 0.06);
 }
 
 .section-light .eyebrow {
-  background: rgba(3, 7, 18, 0.05);
-  border-color: rgba(37, 99, 235, 0.18);
-  color: var(--blue);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: var(--color-border-soft);
+  color: var(--color-accent);
 }
 
 h1,
@@ -32,21 +33,23 @@ h3 {
 
 h2 {
   margin: 0;
+  color: var(--color-text-primary);
   font-size: clamp(2rem, 4.4vw, 4.2rem);
   line-height: 1;
 }
 
 h3 {
   margin: 0;
+  color: var(--color-text-primary);
   font-size: 1.12rem;
   line-height: 1.15;
 }
 
 p {
   margin: 0;
-  color: var(--text);
+  color: var(--color-text-secondary);
 }
 
 .section-light p {
-  color: var(--navy-deep);
+  color: var(--color-text-secondary);
 }
