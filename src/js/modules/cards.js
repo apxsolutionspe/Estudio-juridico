@@ -72,6 +72,130 @@ export function initInteractiveServiceCards() {
   initOverlayCards(".service-card--interactive");
 }
 
+export function initExpandableLegalAreas() {
+  const section = qs("#areas");
+  if (!section || section.dataset.expandableAreasInitialized === "true") return;
+
+  const grid = qs("[data-expandable-grid]", section);
+  const button = qs("[data-legal-areas-toggle]", section);
+  if (!grid || !button) return;
+
+  const cards = qsa(".legal-area-card", grid);
+  if (!cards.length) return;
+
+  section.dataset.expandableAreasInitialized = "true";
+
+  let isExpanded = false;
+  let resizeFrame = 0;
+
+  const getInitialVisibleCount = () => {
+    if (window.innerWidth <= 980) return Math.min(4, cards.length);
+    return Math.min(6, cards.length);
+  };
+
+  const applyState = () => {
+    const visibleCount = getInitialVisibleCount();
+    const hasHiddenCards = cards.length > visibleCount;
+
+    cards.forEach((card, index) => {
+      const isExtraCard = index >= visibleCount;
+      const shouldHide = !isExpanded && isExtraCard;
+
+      card.classList.toggle("is-hidden-by-toggle", shouldHide);
+      card.classList.toggle("is-revealed-by-toggle", isExpanded && isExtraCard);
+
+      if (shouldHide) card.classList.remove("is-open");
+    });
+
+    button.hidden = !hasHiddenCards;
+    button.textContent = isExpanded ? "Ver menos" : "Ver más áreas";
+    button.setAttribute("aria-expanded", String(isExpanded));
+  };
+
+  const requestStateUpdate = () => {
+    if (resizeFrame) return;
+
+    resizeFrame = window.requestAnimationFrame(() => {
+      resizeFrame = 0;
+      applyState();
+    });
+  };
+
+  button.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+    applyState();
+
+    if (!isExpanded && section.getBoundingClientRect().top < 0) {
+      section.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+    }
+  });
+
+  window.addEventListener("resize", requestStateUpdate, { passive: true });
+  applyState();
+}
+
+export function initExpandableServices() {
+  const section = qs("#servicios");
+  if (!section || section.dataset.expandableServicesInitialized === "true") return;
+
+  const grid = qs("[data-expandable-services-grid]", section);
+  const button = qs("[data-services-toggle]", section);
+  if (!grid || !button) return;
+
+  const cards = qsa(".service-card", grid);
+  if (!cards.length) return;
+
+  section.dataset.expandableServicesInitialized = "true";
+
+  let isExpanded = false;
+  let resizeFrame = 0;
+
+  const getInitialVisibleCount = () => {
+    if (window.innerWidth <= 980) return Math.min(4, cards.length);
+    return Math.min(6, cards.length);
+  };
+
+  const applyState = () => {
+    const visibleCount = getInitialVisibleCount();
+    const hasHiddenCards = cards.length > visibleCount;
+
+    cards.forEach((card, index) => {
+      const isExtraCard = index >= visibleCount;
+      const shouldHide = !isExpanded && isExtraCard;
+
+      card.classList.toggle("is-hidden-by-toggle", shouldHide);
+      card.classList.toggle("is-revealed-by-toggle", isExpanded && isExtraCard);
+
+      if (shouldHide) card.classList.remove("is-open");
+    });
+
+    button.hidden = !hasHiddenCards;
+    button.textContent = isExpanded ? "Ver menos" : "Ver más servicios";
+    button.setAttribute("aria-expanded", String(isExpanded));
+  };
+
+  const requestStateUpdate = () => {
+    if (resizeFrame) return;
+
+    resizeFrame = window.requestAnimationFrame(() => {
+      resizeFrame = 0;
+      applyState();
+    });
+  };
+
+  button.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+    applyState();
+
+    if (!isExpanded && section.getBoundingClientRect().top < 0) {
+      section.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+    }
+  });
+
+  window.addEventListener("resize", requestStateUpdate, { passive: true });
+  applyState();
+}
+
 function initOverlayCards(selector) {
   const cards = qsa(selector);
   if (!cards.length) return;
@@ -117,4 +241,6 @@ export function initCards() {
   initInteractiveBenefitCards();
   initLegalAreaCards();
   initInteractiveServiceCards();
+  initExpandableLegalAreas();
+  initExpandableServices();
 }

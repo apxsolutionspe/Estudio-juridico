@@ -1,5 +1,5 @@
 const DEBUG_ANIMATIONS = false;
-const FORCE_MOTION_FOR_PREVIEW = true;
+const FORCE_MOTION_FOR_PREVIEW = false;
 
 const REVEAL_SELECTOR = [
   "[data-animate]",

@@ -40,6 +40,15 @@
   --glass: rgba(255, 255, 255, 0.68);
   --glass-strong: rgba(255, 255, 255, 0.9);
   --shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+  --shadow-premium: 0 28px 80px rgba(15, 23, 42, 0.12);
+  --shadow-focus: 0 0 0 4px rgba(11, 79, 216, 0.14);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 280ms;
+  --duration-normal: 420ms;
+  --duration-slow: 720ms;
+  --radius-card: 28px;
+  --radius-large: 36px;
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;

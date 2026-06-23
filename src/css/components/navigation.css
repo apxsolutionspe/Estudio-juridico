@@ -24,16 +24,22 @@
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  border: 1px solid rgba(248, 250, 252, 0.34);
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow:
-    inset 0 1px 0 rgba(248, 250, 252, 0.12),
-    0 0 18px rgba(56, 189, 248, 0.08);
+    inset 0 1px 0 rgba(248, 250, 252, 0.16),
+    0 8px 24px rgba(3, 7, 18, 0.12);
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--white);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    text-shadow 0.28s ease;
 }
 
 .brand-divider {
@@ -48,6 +54,10 @@
   font-weight: 700;
   color: var(--white);
   white-space: nowrap;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
+  transition:
+    color 0.25s ease,
+    text-shadow 0.28s ease;
 }
 
 .nav-menu {
@@ -63,7 +73,10 @@
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-weight: 600;
-  transition: color 0.25s ease;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.24);
+  transition:
+    color 0.25s ease,
+    text-shadow 0.28s ease;
 }
 
 .nav-link::after {
@@ -108,19 +121,22 @@
   min-height: 42px;
   padding: 0 1.25rem;
   border: 1px solid rgba(248, 250, 252, 0.52);
-  background: rgba(3, 7, 18, 0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   color: var(--white);
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-weight: 700;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.26);
   transition:
     background 0.28s ease,
     color 0.28s ease,
     border-color 0.28s ease,
     transform 0.28s ease,
-    box-shadow 0.28s ease;
+    box-shadow 0.28s ease,
+    text-shadow 0.28s ease,
+    backdrop-filter 0.28s ease;
 }
 
 .nav-cta:hover {
@@ -147,9 +163,14 @@
   gap: 5px;
   border: 1px solid rgba(148, 163, 184, 0.3);
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--white);
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(3, 7, 18, 0.12);
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
 .menu-toggle span {
@@ -166,4 +187,38 @@
 
 .menu-toggle.is-open span:last-child {
   transform: translateY(-3.5px) rotate(-45deg);
+}
+
+body.nav-open .brand-logo,
+body.nav-open .brand-mark,
+.site-header.is-scrolled .brand-logo,
+.site-header.is-scrolled .brand-mark {
+  border-color: rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 250, 252, 0.12),
+    0 0 18px rgba(56, 189, 248, 0.08);
+  text-shadow: none;
+}
+
+body.nav-open .brand-name,
+body.nav-open .nav-link,
+.site-header.is-scrolled .brand-name,
+.site-header.is-scrolled .nav-link {
+  text-shadow: none;
+}
+
+body.nav-open .nav-cta,
+.site-header.is-scrolled .nav-cta {
+  background: rgba(3, 7, 18, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-shadow: none;
+}
+
+body.nav-open .menu-toggle,
+.site-header.is-scrolled .menu-toggle {
+  border-color: rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: none;
 }

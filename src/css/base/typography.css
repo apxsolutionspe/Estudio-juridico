@@ -16,6 +16,11 @@
   letter-spacing: 0;
   text-transform: uppercase;
   box-shadow: 0 10px 28px rgba(42, 52, 68, 0.06);
+  transition:
+    border-color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    box-shadow var(--duration-normal) var(--ease-premium),
+    transform var(--duration-normal) var(--ease-premium);
 }
 
 .section-light .eyebrow {
@@ -35,7 +40,9 @@ h2 {
   margin: 0;
   color: var(--color-text-primary);
   font-size: clamp(2rem, 4.4vw, 4.2rem);
+  font-weight: 740;
   line-height: 1;
+  text-wrap: balance;
 }
 
 h3 {
@@ -43,11 +50,13 @@ h3 {
   color: var(--color-text-primary);
   font-size: 1.12rem;
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 p {
   margin: 0;
   color: var(--color-text-secondary);
+  line-height: 1.7;
 }
 
 .section-light p {

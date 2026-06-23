@@ -95,10 +95,10 @@ textarea {
   outline: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition:
-    border-color 0.22s ease,
-    background 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.22s ease;
+    border-color var(--duration-fast) ease,
+    background var(--duration-fast) ease,
+    box-shadow var(--duration-normal) var(--ease-premium),
+    transform var(--duration-normal) var(--ease-premium);
 }
 
 select {
@@ -133,7 +133,7 @@ textarea:focus {
   border-color: rgba(72, 103, 122, 0.54);
   background: #ffffff;
   box-shadow:
-    0 0 0 4px rgba(72, 103, 122, 0.12),
+    var(--shadow-focus),
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
@@ -145,6 +145,7 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid rgba(72, 103, 122, 0.34);
   outline-offset: 3px;
+  border-radius: 14px;
 }
 
 input.is-invalid,
@@ -168,6 +169,11 @@ textarea.is-invalid {
   box-shadow:
     0 16px 38px rgba(42, 52, 68, 0.16),
     0 0 28px rgba(11, 79, 216, 0.08);
+  transition:
+    transform var(--duration-normal) var(--ease-premium),
+    box-shadow var(--duration-normal) var(--ease-premium),
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
 }
 
 .contact-form .btn-primary:hover {
@@ -306,10 +312,11 @@ textarea.is-invalid {
   background: rgba(255, 255, 255, 0.86);
   color: var(--color-accent);
   transition:
-    transform 0.24s ease,
-    border-color 0.24s ease,
-    background 0.24s ease,
-    color 0.24s ease;
+    transform var(--duration-normal) var(--ease-premium),
+    border-color var(--duration-fast) ease,
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    box-shadow var(--duration-normal) var(--ease-premium);
 }
 
 .contact-social a:hover,

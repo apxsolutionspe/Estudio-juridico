@@ -264,6 +264,72 @@
   transform: translateX(3px);
 }
 
+.legal-area-card.is-hidden-by-toggle {
+  display: none;
+}
+
+.legal-area-card.is-revealed-by-toggle {
+  animation: legalAreaReveal 560ms var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.legal-areas-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.legal-areas-toggle {
+  min-height: 52px;
+  padding: 0 1.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.92)),
+    #ffffff;
+  color: var(--color-text-primary);
+  font: inherit;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow:
+    0 18px 44px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  transition:
+    transform var(--duration-normal, 420ms) var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-normal, 420ms) var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 280ms) ease,
+    background-color var(--duration-fast, 280ms) ease,
+    color var(--duration-fast, 280ms) ease;
+}
+
+.legal-areas-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(11, 79, 216, 0.28);
+  color: var(--color-accent);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.legal-areas-toggle:focus-visible {
+  outline: 3px solid rgba(11, 79, 216, 0.28);
+  outline-offset: 4px;
+}
+
+@keyframes legalAreaReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 980px) {
   .legal-area-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -288,6 +354,14 @@
     width: 72px;
     height: 72px;
   }
+
+  .legal-areas-actions {
+    margin-top: 2rem;
+  }
+
+  .legal-areas-toggle {
+    width: min(100%, 18rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -305,5 +379,9 @@
   .legal-area-card:focus-within .legal-area-card__media,
   .legal-area-card.is-open .legal-area-card__media {
     filter: none;
+  }
+
+  .legal-area-card.is-revealed-by-toggle {
+    animation: none;
   }
 }

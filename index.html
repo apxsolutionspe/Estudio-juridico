@@ -90,19 +90,19 @@
             />
           </figure>
 
-          <div class="immersive-visual-layers slide-item motion-item reveal-right" aria-hidden="true">
-            <div class="immersive-layer is-active" data-layer="0">
+          <div class="immersive-visual-layers slide-item motion-item reveal-right" aria-label="Etapas de la experiencia visual">
+            <button class="immersive-layer is-active" type="button" data-layer="0">
               <span>01</span>
               <strong>Análisis inicial</strong>
-            </div>
-            <div class="immersive-layer" data-layer="1">
+            </button>
+            <button class="immersive-layer" type="button" data-layer="1">
               <span>02</span>
               <strong>Estrategia jurídica</strong>
-            </div>
-            <div class="immersive-layer" data-layer="2">
+            </button>
+            <button class="immersive-layer" type="button" data-layer="2">
               <span>03</span>
               <strong>Acompañamiento continuo</strong>
-            </div>
+            </button>
           </div>
         </div>
       </section>
@@ -184,28 +184,39 @@
         </div>
       </section>
 
-      <section class="section section-light slide-section motion-section reveal-up" id="nosotros" aria-labelledby="about-title">
-        <div class="container split-grid">
-          <div class="section-copy slide-item motion-item reveal-left">
-            <span class="eyebrow">Nosotros</span>
-            <h2 id="about-title">Sobre el Estudio Jurídico Erika</h2>
-            <p>
+      <section class="section section-light about-leader slide-section motion-section reveal-up" id="nosotros" aria-labelledby="about-title">
+        <div class="container split-grid about-leader__layout">
+          <div class="section-copy about-leader__content slide-item motion-item reveal-left">
+            <span class="eyebrow about-leader__eyebrow" data-animate="fade-up">Nosotros</span>
+            <h2 class="about-leader__title" id="about-title" data-animate="fade-up">Sobre el Estudio Jurídico Erika</h2>
+            <p class="about-leader__description" data-animate="fade-up">
               Brindamos asesoría jurídica clara, estratégica y responsable para personas, familias y empresas.
               Nuestro enfoque combina criterio legal, comunicación directa y acompañamiento profesional en cada
               etapa del proceso.
             </p>
-            <ul class="value-list">
-              <li>Ética profesional</li>
-              <li>Confidencialidad</li>
-              <li>Responsabilidad</li>
-              <li>Estrategia legal</li>
-              <li>Trato humano</li>
-            </ul>
+            <div class="about-leader__principles" aria-label="Misión y visión institucional">
+              <article class="about-leader__principle-card motion-card stagger-item" data-animate="fade-up">
+                <h3>Misión</h3>
+                <p>
+                  Brindar asesoría jurídica clara, responsable y estratégica, ofreciendo acompañamiento profesional a
+                  personas, familias y empresas para proteger sus derechos y tomar decisiones legales con seguridad.
+                </p>
+              </article>
+              <article class="about-leader__principle-card motion-card stagger-item" data-animate="fade-up">
+                <h3>Visión</h3>
+                <p>
+                  Ser un estudio jurídico reconocido por su ética, cercanía y excelencia profesional, consolidándose
+                  como un aliado confiable para resolver necesidades legales con criterio, orden y compromiso.
+                </p>
+              </article>
+            </div>
           </div>
 
-          <figure class="image-panel image-frame slide-item motion-image reveal-right">
-            <img src="./assets/images/legal-office-1.png" alt="Oficina moderna del Estudio Jurídico Erika" loading="lazy" />
-          </figure>
+          <div class="about-leader__visual">
+            <figure class="image-panel image-frame about-leader__media slide-item motion-image reveal-right">
+              <img src="./assets/images/legal-office-1.png" alt="Oficina moderna del Estudio Jurídico Erika" loading="lazy" />
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -216,7 +227,7 @@
             <h2 id="areas-title">Especialidades orientadas a resolver con claridad y estrategia.</h2>
           </div>
 
-          <div class="legal-area-grid slide-item motion-item reveal-up" aria-label="Áreas legales disponibles">
+          <div class="legal-area-grid slide-item motion-item reveal-up" id="legal-areas-grid" aria-label="Áreas legales disponibles" data-expandable-grid>
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho civil">
               <div class="legal-area-card__media" aria-hidden="true">
                 <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
@@ -370,6 +381,12 @@
               </div>
             </article>
           </div>
+
+          <div class="legal-areas-actions">
+            <button class="legal-areas-toggle" type="button" aria-expanded="false" aria-controls="legal-areas-grid" data-legal-areas-toggle>
+              Ver más áreas
+            </button>
+          </div>
         </div>
       </section>
 
@@ -380,7 +397,7 @@
             <h2 id="services-title">Soluciones jurídicas concretas para actuar con seguridad.</h2>
           </div>
 
-          <div class="services-grid">
+          <div class="services-grid" id="services-grid" data-expandable-services-grid>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Consulta legal inicial">
               <div class="service-card__media" aria-hidden="true">
                 <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
@@ -550,6 +567,12 @@
               </div>
             </article>
           </div>
+
+          <div class="services-actions">
+            <button class="services-toggle" type="button" aria-expanded="false" aria-controls="services-grid" data-services-toggle>
+              Ver más servicios
+            </button>
+          </div>
         </div>
       </section>
 
@@ -560,7 +583,7 @@
             <h2 id="process-title">Un método claro para tomar decisiones legales con respaldo.</h2>
           </div>
 
-          <div class="process-track">
+          <div class="process-track" aria-label="Etapas del proceso de atención">
             <article class="step slide-item motion-card reveal-up stagger-item">
               <span>1</span>
               <h3>Analizamos tu caso</h3>

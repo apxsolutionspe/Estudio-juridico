@@ -1,15 +1,15 @@
-/* Lightweight visual bridge between hero and benefits. */
+/* Editorial bridge between hero and benefits. */
 
 .immersive-visual-section {
   position: relative;
-  min-height: 210vh;
+  min-height: 198vh;
   overflow-x: clip;
   color: var(--color-text-primary);
   background:
-    radial-gradient(circle at 48% 12%, rgba(255, 255, 255, 0.95), transparent 26rem),
-    radial-gradient(circle at 82% 24%, rgba(11, 79, 216, 0.08), transparent 24rem),
-    radial-gradient(circle at 12% 72%, rgba(15, 23, 42, 0.04), transparent 22rem),
-    linear-gradient(180deg, #ffffff 0%, #f1f5fb 58%, #ffffff 100%);
+    radial-gradient(circle at 48% 10%, rgba(255, 255, 255, 0.96), transparent 27rem),
+    radial-gradient(circle at 84% 26%, rgba(11, 79, 216, 0.075), transparent 24rem),
+    radial-gradient(circle at 12% 72%, rgba(15, 23, 42, 0.045), transparent 22rem),
+    linear-gradient(180deg, #ffffff 0%, #f4f7fb 52%, #ffffff 100%);
 }
 
 .immersive-visual-section::before {
@@ -18,8 +18,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.56), transparent 38%, rgba(11, 79, 216, 0.05)),
-    radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(42, 52, 68, 0.08) 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68), transparent 42%, rgba(11, 79, 216, 0.045)),
+    radial-gradient(ellipse at 50% 54%, transparent 42%, rgba(42, 52, 68, 0.08) 100%);
 }
 
 .immersive-visual-sticky {
@@ -27,138 +27,274 @@
   top: 0;
   z-index: 1;
   min-height: 100vh;
-  width: min(100% - 2rem, 1220px);
+  width: min(100% - 2rem, 1240px);
   display: grid;
-  grid-template-columns: minmax(260px, 0.82fr) minmax(420px, 1.26fr);
+  grid-template-columns: minmax(360px, 0.98fr) minmax(480px, 1.02fr);
   grid-template-areas:
     "copy stage"
     "layers stage";
   align-items: center;
-  gap: clamp(1.5rem, 5vw, 5rem);
+  gap: clamp(2rem, 5vw, 5.5rem);
   margin: 0 auto;
-  padding: clamp(6rem, 10vh, 7.5rem) 0 clamp(4rem, 8vh, 6rem);
+  padding: clamp(6rem, 10vh, 7.5rem) 0 clamp(4.5rem, 8vh, 6rem);
 }
 
 .immersive-visual-copy {
   grid-area: copy;
-  max-width: 420px;
+  max-width: 620px;
+}
+
+.immersive-visual-copy .eyebrow {
+  margin-bottom: clamp(1.1rem, 2vw, 1.5rem);
+  border-color: rgba(72, 103, 122, 0.18);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.82)),
+    rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 34px rgba(42, 52, 68, 0.07);
 }
 
 .immersive-visual-copy h2 {
-  max-width: 10ch;
+  max-width: 15.8ch;
   margin: 0;
   color: var(--color-text-primary);
-  font-size: clamp(2.25rem, 5vw, 5rem);
+  font-size: clamp(2.9rem, 3.8vw, 4.35rem);
   font-weight: 720;
   line-height: 0.98;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
 .immersive-visual-copy p {
-  max-width: 36rem;
-  margin-top: 1.2rem;
+  max-width: 34rem;
+  margin-top: clamp(1.15rem, 2vw, 1.55rem);
   color: var(--color-text-secondary);
-  font-size: clamp(1rem, 1.3vw, 1.08rem);
-  line-height: 1.75;
+  font-size: clamp(1rem, 1.22vw, 1.08rem);
+  line-height: 1.78;
 }
 
 .immersive-visual-stage {
   grid-area: stage;
   position: relative;
-  min-height: min(68vh, 680px);
+  min-height: min(68vh, 660px);
   margin: 0;
   border: 1px solid rgba(72, 103, 122, 0.14);
-  border-radius: clamp(24px, 4vw, 36px);
+  border-radius: clamp(28px, 4vw, 38px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.82), transparent 28%),
-    radial-gradient(circle at 62% 72%, rgba(11, 79, 216, 0.08), transparent 30%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(241, 245, 249, 0.76));
+    radial-gradient(circle at var(--visual-focus-x, 50%) var(--visual-focus-y, 28%), rgba(255, 255, 255, 0.86), transparent 30%),
+    radial-gradient(circle at 66% 76%, rgba(11, 79, 216, 0.08), transparent 31%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(241, 245, 249, 0.78));
   box-shadow:
-    0 30px 90px rgba(40, 35, 28, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    0 34px 90px rgba(40, 35, 28, 0.14),
+    0 12px 34px rgba(11, 79, 216, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  isolation: isolate;
+  transform: translateZ(0);
+  transition:
+    border-color 620ms ease,
+    box-shadow 620ms ease,
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.immersive-visual-stage::before,
 .immersive-visual-stage::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
+}
+
+.immersive-visual-stage::before {
+  opacity: var(--visual-glow-opacity, 0.58);
   background:
-    radial-gradient(circle at 48% 28%, rgba(255, 255, 255, 0.32), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(14, 23, 42, 0.08));
+    radial-gradient(circle at var(--visual-focus-x, 50%) var(--visual-focus-y, 26%), rgba(255, 255, 255, 0.36), transparent 28%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.16), transparent 44%);
+  transition: opacity 720ms ease, background 720ms ease;
+}
+
+.immersive-visual-stage::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(14, 23, 42, 0.09)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(15, 23, 42, 0.04));
+}
+
+.immersive-visual-stage:hover {
+  border-color: rgba(72, 103, 122, 0.22);
+  box-shadow:
+    0 38px 96px rgba(40, 35, 28, 0.16),
+    0 16px 42px rgba(11, 79, 216, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
 }
 
 .immersive-visual-image {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center;
-  transform: scale(var(--visual-scale, 1.02)) translateY(var(--visual-y, 0px));
-  transition: transform 0.25s ease-out;
+  object-position: var(--visual-focus-x, center) var(--visual-focus-y, center);
+  transform: scale(var(--visual-scale, 1.025)) translate3d(var(--visual-x, 0px), var(--visual-y, 0px), 0);
+  filter: saturate(var(--visual-saturation, 1.03)) contrast(var(--visual-contrast, 1.02));
+  transition:
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
+    object-position 820ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 820ms ease;
 }
 
 .immersive-visual-layers {
   grid-area: layers;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.86rem;
   align-self: start;
-  max-width: 360px;
+  max-width: 390px;
+  margin-top: clamp(0.6rem, 2vw, 1.2rem);
 }
 
 .immersive-layer {
-  min-height: 54px;
+  position: relative;
+  min-height: 62px;
+  width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0 1rem 0 0.85rem;
-  border: 1px solid rgba(72, 103, 122, 0.12);
+  gap: 0.95rem;
+  padding: 0.62rem 1.1rem 0.62rem 0.68rem;
+  border: 1px solid rgba(72, 103, 122, 0.13);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.68);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.66)),
+    rgba(255, 255, 255, 0.72);
   color: var(--color-text-muted);
+  font: inherit;
   font-weight: 850;
-  box-shadow: 0 14px 34px rgba(42, 52, 68, 0.07);
-  opacity: 0.52;
+  text-align: left;
+  box-shadow:
+    0 14px 34px rgba(42, 52, 68, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  opacity: 0.66;
   transform: translateX(-8px);
   transition:
-    opacity 0.35s ease,
-    transform 0.35s ease,
-    background 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease;
+    opacity 520ms ease,
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 560ms ease,
+    color 560ms ease,
+    border-color 560ms ease,
+    box-shadow 560ms ease;
+}
+
+.immersive-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0.38rem;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(11, 79, 216, 0.08), transparent 58%);
+  opacity: 0;
+  transition: opacity 520ms ease;
+}
+
+.immersive-layer span,
+.immersive-layer strong {
+  position: relative;
+  z-index: 1;
 }
 
 .immersive-layer span {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.55rem;
+  height: 2.55rem;
   display: grid;
   place-items: center;
+  border: 1px solid rgba(11, 79, 216, 0.11);
   border-radius: 999px;
-  background: rgba(72, 103, 122, 0.08);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9)),
+    rgba(255, 255, 255, 0.9);
   color: var(--color-accent);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 900;
+  box-shadow: 0 10px 24px rgba(42, 52, 68, 0.07);
+  transition:
+    color 520ms ease,
+    background 520ms ease,
+    border-color 520ms ease,
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 560ms ease;
 }
 
 .immersive-layer strong {
-  font-size: 0.92rem;
+  font-size: clamp(0.92rem, 1vw, 0.98rem);
+  line-height: 1.12;
+}
+
+.immersive-layer:hover,
+.immersive-layer:focus-visible {
+  opacity: 0.9;
+  transform: translateX(0);
+  border-color: rgba(72, 103, 122, 0.2);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.immersive-layer:focus-visible {
+  box-shadow:
+    0 16px 38px rgba(42, 52, 68, 0.08),
+    0 0 0 4px rgba(11, 79, 216, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .immersive-layer.is-active {
-  border-color: rgba(72, 103, 122, 0.24);
-  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(11, 79, 216, 0.2);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 255, 0.9)),
+    rgba(255, 255, 255, 0.94);
   color: var(--color-text-primary);
+  box-shadow:
+    0 18px 44px rgba(42, 52, 68, 0.1),
+    0 0 0 1px rgba(11, 79, 216, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
   opacity: 1;
   transform: translateX(0);
 }
 
-@media (max-width: 980px) {
+.immersive-layer.is-active::after {
+  opacity: 1;
+}
+
+.immersive-layer.is-active span {
+  border-color: rgba(11, 79, 216, 0.24);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 14px 28px rgba(11, 79, 216, 0.18);
+  transform: scale(1.03);
+}
+
+.immersive-visual-section[data-visual-step="1"] .immersive-visual-stage {
+  --visual-focus-x: 58%;
+  --visual-focus-y: 46%;
+  --visual-glow-opacity: 0.64;
+  --visual-saturation: 1.04;
+  --visual-contrast: 1.03;
+}
+
+.immersive-visual-section[data-visual-step="2"] .immersive-visual-stage {
+  --visual-focus-x: 64%;
+  --visual-focus-y: 58%;
+  --visual-glow-opacity: 0.7;
+  --visual-saturation: 1.02;
+  --visual-contrast: 1.04;
+}
+
+.immersive-visual-section.is-visual-transitioning .immersive-visual-stage {
+  transform: translateY(-2px) scale(0.997);
+}
+
+@media (max-width: 1100px) {
   .immersive-visual-section {
-    min-height: 170vh;
+    min-height: 168vh;
   }
 
   .immersive-visual-sticky {
@@ -168,16 +304,21 @@
       "stage"
       "layers";
     align-content: center;
-    gap: 1.5rem;
+    gap: 1.65rem;
     padding-top: 5.5rem;
   }
 
   .immersive-visual-copy {
-    max-width: 720px;
+    max-width: 760px;
   }
 
   .immersive-visual-copy h2 {
-    max-width: 14ch;
+    max-width: 16ch;
+    font-size: clamp(2.85rem, 7vw, 4.75rem);
+  }
+
+  .immersive-visual-copy p {
+    max-width: 42rem;
   }
 
   .immersive-visual-stage {
@@ -187,6 +328,16 @@
   .immersive-visual-layers {
     max-width: none;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .immersive-layer {
+    min-height: 68px;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    align-content: center;
+    justify-items: start;
+    border-radius: 24px;
+    padding: 0.9rem;
   }
 }
 
@@ -202,17 +353,45 @@
   }
 
   .immersive-visual-copy h2 {
-    max-width: 12ch;
-    font-size: clamp(2.15rem, 12vw, 3.55rem);
+    max-width: 12.4ch;
+    font-size: clamp(2.38rem, 10.5vw, 3.45rem);
+    line-height: 0.98;
+  }
+
+  .immersive-visual-copy p {
+    font-size: 1rem;
+    line-height: 1.72;
   }
 
   .immersive-visual-stage {
-    min-height: 420px;
+    min-height: 410px;
     border-radius: 24px;
   }
 
   .immersive-visual-layers {
     grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .immersive-layer {
+    min-height: 58px;
+    grid-template-columns: auto 1fr;
+    border-radius: 999px;
+    padding: 0.58rem 0.9rem 0.58rem 0.58rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .immersive-visual-copy h2 {
+    max-width: 11.6ch;
+  }
+
+  .immersive-visual-stage {
+    min-height: 360px;
+  }
+
+  .immersive-layer strong {
+    font-size: 0.9rem;
   }
 }
 
@@ -225,8 +404,12 @@
     position: relative;
   }
 
+  .immersive-visual-stage,
+  .immersive-visual-stage::before,
   .immersive-visual-image,
-  .immersive-layer {
+  .immersive-layer,
+  .immersive-layer::after,
+  .immersive-layer span {
     transform: none;
     transition: none;
   }

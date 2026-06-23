@@ -15,18 +15,18 @@
     .footer-cta-link
   ) {
     transition:
-      transform 280ms ease,
-      box-shadow 280ms ease,
-      opacity 280ms ease,
-      filter 280ms ease,
-      color 280ms ease,
-      border-color 280ms ease,
-      background 280ms ease;
+      transform var(--duration-normal) var(--ease-premium),
+      box-shadow var(--duration-normal) var(--ease-premium),
+      opacity var(--duration-fast) ease,
+      filter var(--duration-fast) ease,
+      color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      background var(--duration-fast) ease;
   }
 
   :is(.btn, .mini-btn, .nav-cta, .footer-cta-link):not(.js-reveal-target):hover,
   .js-reveal-target.is-visible:is(.btn, .mini-btn, .nav-cta, .footer-cta-link):hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     filter: brightness(1.04);
   }
 
@@ -44,11 +44,11 @@
 
   .process-section .js-reveal-target.is-visible.step:hover {
     transform: translateY(-7px);
-    border-color: rgba(11, 79, 216, 0.22);
+    border-color: rgba(11, 79, 216, 0.2);
     box-shadow:
-      0 28px 78px rgba(15, 23, 42, 0.12),
+      0 30px 82px rgba(15, 23, 42, 0.115),
       0 0 0 1px rgba(11, 79, 216, 0.035),
-      inset 0 1px 0 rgba(255, 255, 255, 0.94);
+      inset 0 1px 0 rgba(255, 255, 255, 0.96);
   }
 
   .section-benefits .js-reveal-target.is-visible.feature-card:hover {
@@ -73,6 +73,14 @@
     transform: translateY(-5px);
     border-color: rgba(72, 103, 122, 0.28);
   }
+
+  #nosotros .about-leader__principle-card.js-reveal-target.is-visible:hover {
+    transform: translateY(-4px);
+  }
+
+  #nosotros .about-leader__media.js-reveal-target.is-visible:hover {
+    transform: translateY(-4px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,6 +93,7 @@
     .wide-card,
     .step,
     .quote-card,
+    .about-leader__principle-card,
     .image-panel,
     .image-frame,
     .service-card a,

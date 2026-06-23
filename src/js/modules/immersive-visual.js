@@ -16,20 +16,26 @@ function getActiveLayerIndex(progress, totalLayers) {
   return totalLayers - 1;
 }
 
-function setLayerState(layers, progress) {
-  const activeIndex = getActiveLayerIndex(progress, layers.length);
+function setLayerState(section, layers, activeIndex) {
+  section.dataset.visualStep = String(activeIndex);
 
   layers.forEach((layer, index) => {
-    layer.classList.toggle("is-active", index === activeIndex);
+    const isActive = index === activeIndex;
+
+    layer.classList.toggle("is-active", isActive);
+    layer.setAttribute("aria-pressed", String(isActive));
   });
 }
 
-function updateVisual(image, progress, reducedMotion) {
+function updateVisual(image, progress, activeIndex, reducedMotion) {
   if (!image || reducedMotion) return;
 
-  const y = Math.round((progress - 0.5) * -18);
-  const scale = 1.02 + progress * 0.035;
+  const stepOffset = (activeIndex - 1) * -5;
+  const y = Math.round((progress - 0.5) * -16 + stepOffset);
+  const x = Math.round((activeIndex - 1) * -4);
+  const scale = 1.025 + progress * 0.028 + activeIndex * 0.006;
 
+  image.style.setProperty("--visual-x", `${x}px`);
   image.style.setProperty("--visual-y", `${y}px`);
   image.style.setProperty("--visual-scale", scale.toFixed(3));
 }
@@ -46,13 +52,47 @@ export function initImmersiveVisual() {
   window.__IMMERSIVE_VISUAL_INITIALIZED__ = true;
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let activeIndex = -1;
+  let transitionTimer = 0;
+
+  const activateLayer = (nextIndex) => {
+    if (nextIndex === activeIndex) return;
+
+    activeIndex = nextIndex;
+    setLayerState(section, layers, activeIndex);
+
+    section.classList.add("is-visual-transitioning");
+    window.clearTimeout(transitionTimer);
+    transitionTimer = window.setTimeout(() => {
+      section.classList.remove("is-visual-transitioning");
+    }, 460);
+  };
 
   const update = () => {
     const progress = getSectionProgress(section);
+    const nextIndex = getActiveLayerIndex(progress, layers.length);
 
-    setLayerState(layers, progress);
-    updateVisual(image, progress, reducedMotion);
+    activateLayer(nextIndex);
+    updateVisual(image, progress, activeIndex, reducedMotion);
   };
+
+  layers.forEach((layer, index) => {
+    layer.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch") return;
+      activateLayer(index);
+      updateVisual(image, getSectionProgress(section), index, reducedMotion);
+    });
+
+    layer.addEventListener("focus", () => {
+      activateLayer(index);
+      updateVisual(image, getSectionProgress(section), index, reducedMotion);
+    });
+
+    layer.addEventListener("click", () => {
+      activateLayer(index);
+      updateVisual(image, getSectionProgress(section), index, reducedMotion);
+    });
+  });
 
   update();
   window.addEventListener("scroll", update, { passive: true });

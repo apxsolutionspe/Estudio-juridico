@@ -15,7 +15,11 @@
     var(--color-bg-surface);
   box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition:
+    transform var(--duration-normal) var(--ease-premium),
+    border-color var(--duration-fast) ease,
+    background var(--duration-fast) ease,
+    box-shadow var(--duration-normal) var(--ease-premium);
 }
 
 .section-light .feature-card,
@@ -37,7 +41,7 @@
   transform: translateY(-8px);
   border-color: rgba(72, 103, 122, 0.28);
   box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.12),
+    var(--shadow-premium),
     0 0 32px rgba(11, 79, 216, 0.08);
 }
 
@@ -461,6 +465,10 @@
   box-shadow:
     0 24px 60px rgba(15, 23, 42, 0.1),
     0 0 44px rgba(11, 79, 216, 0.07);
+  transition:
+    transform var(--duration-slow) var(--ease-premium),
+    border-color var(--duration-normal) ease,
+    box-shadow var(--duration-slow) var(--ease-premium);
 }
 
 .image-panel img,
@@ -472,8 +480,8 @@
   object-fit: cover;
   transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.04);
   transition:
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 900ms var(--ease-premium),
+    filter 900ms var(--ease-premium);
 }
 
 .image-frame::after,
@@ -542,9 +550,9 @@
   cursor: pointer;
   isolation: isolate;
   transition:
-    transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms var(--ease-premium),
     border-color 480ms ease,
-    box-shadow 480ms ease;
+    box-shadow 520ms var(--ease-premium);
 }
 
 .services-showcase .service-card--interactive:hover,
@@ -815,6 +823,72 @@
   transition-delay: 180ms, 0ms, 0ms, 180ms, 0ms, 0ms, 0ms, 0ms;
 }
 
+.services-showcase .service-card.is-hidden-by-toggle {
+  display: none;
+}
+
+.services-showcase .service-card.is-revealed-by-toggle {
+  animation: serviceCardReveal 560ms var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.services-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.services-toggle {
+  min-height: 52px;
+  padding: 0 1.875rem;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.92)),
+    #ffffff;
+  color: var(--color-text-primary);
+  font: inherit;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow:
+    0 18px 44px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  transition:
+    transform var(--duration-normal, 420ms) var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--duration-normal, 420ms) var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color var(--duration-fast, 280ms) ease,
+    background-color var(--duration-fast, 280ms) ease,
+    color var(--duration-fast, 280ms) ease;
+}
+
+.services-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(11, 79, 216, 0.28);
+  color: var(--color-accent);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.services-toggle:focus-visible {
+  outline: 3px solid rgba(11, 79, 216, 0.28);
+  outline-offset: 4px;
+}
+
+@keyframes serviceCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .service-card a {
   width: fit-content;
   margin-top: auto;
@@ -841,6 +915,14 @@
     width: 70px;
     height: 70px;
   }
+
+  .services-actions {
+    margin-top: 2rem;
+  }
+
+  .services-toggle {
+    width: min(100%, 18rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -858,6 +940,10 @@
   .services-showcase .service-card--interactive:focus-within .service-card__media,
   .services-showcase .service-card--interactive.is-open .service-card__media {
     filter: none;
+  }
+
+  .services-showcase .service-card.is-revealed-by-toggle {
+    animation: none;
   }
 }
 
@@ -890,14 +976,17 @@
   min-height: 42px;
   margin-top: auto;
   padding: 0.68rem 0.95rem;
+  border-radius: 999px;
   background: var(--color-text-primary);
   color: var(--color-accent-contrast);
   font-size: 0.88rem;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
 }
 
 .btn {
   min-height: 48px;
   padding: 0.86rem 1.15rem;
+  border-radius: 999px;
 }
 
 .btn-primary {
