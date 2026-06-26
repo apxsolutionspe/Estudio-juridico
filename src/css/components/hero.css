@@ -9,7 +9,7 @@
   isolation: isolate;
   background:
     linear-gradient(rgba(3, 7, 18, 0.24), rgba(3, 7, 18, 0.42)),
-    url("../../assets/images/oficina-legal.webp") center / cover no-repeat,
+    url("../../../assets/images/oficina-legal.webp") center / cover no-repeat,
     #030712;
 }
 
@@ -98,7 +98,7 @@
 
 .hero-title {
   width: min(980px, 90vw);
-  margin: 0;
+  margin: 0 0 clamp(2.4rem, 3.35vw, 3.4rem);
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--hero-refined-font);
   font-size: clamp(2.48rem, 5.6vw, 5.96rem);
@@ -134,13 +134,15 @@
 
 .hero-divider {
   position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(0.7rem, 1.16vw, 0.92rem);
   width: fit-content;
-  margin: calc(clamp(1.8rem, 3vw, 2.55rem) + 8px) auto clamp(0.9rem, 1.35vw, 1.08rem);
+  margin: 0 auto clamp(1.5rem, 2vw, 1.9rem);
   opacity: 1;
+  pointer-events: none;
 }
 
 .hero-divider::before,
@@ -183,7 +185,7 @@
 
 .hero-subtitle {
   max-width: 46rem;
-  margin: clamp(0.95rem, 1.42vw, 1.14rem) auto 0;
+  margin: clamp(1.2rem, 1.8vw, 1.6rem) auto 0;
   color: rgba(255, 255, 255, 0.86);
   font-family: var(--hero-refined-font);
   font-size: clamp(0.98rem, 1.18vw, 1.16rem);
@@ -242,16 +244,17 @@
     font-size: clamp(2.2rem, 10.4vw, 3.32rem);
     line-height: 1.12;
     letter-spacing: 0.01em;
+    margin-bottom: 2.9rem;
   }
 
   .hero-divider {
     gap: 0.58rem;
-    margin-block: calc(1.36rem + 6px) 0.82rem;
+    margin-block: 0 1.3rem;
   }
 
   .hero-divider::before,
   .hero-divider::after {
-    width: clamp(3.1rem, 15vw, 4.7rem);
+    width: 44px;
   }
 
   .hero-divider span {
@@ -262,8 +265,9 @@
   .hero-subtitle {
     max-width: min(22rem, 92vw);
     font-size: 0.98rem;
-    line-height: 1.62;
+    line-height: 1.7;
     letter-spacing: 0.018em;
+    margin-top: 1.2rem;
   }
 
   .hero-signature {
@@ -275,6 +279,24 @@
 @media (max-width: 390px) {
   .hero .hero-title {
     font-size: clamp(1.96rem, 10vw, 2.72rem);
+    line-height: 1.14;
+    margin-bottom: 3.2rem;
+  }
+
+  .hero-divider {
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    width: 34px;
+  }
+
+  .hero-subtitle {
+    max-width: 94%;
+    font-size: 0.9rem;
+    line-height: 1.72;
+    margin-top: 1.3rem;
   }
 
   .hero-kicker,

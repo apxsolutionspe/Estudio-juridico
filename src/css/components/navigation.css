@@ -22,22 +22,37 @@
   flex-shrink: 0;
   justify-content: flex-start;
   gap: 0;
+  width: clamp(118px, 13vw, 190px);
+  height: clamp(38px, 4.8vw, 62px);
+  padding: 0;
+  margin: 0;
+  line-height: 0;
   text-decoration: none;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.site-brand::before,
+.site-brand::after {
+  content: none !important;
+  display: none !important;
 }
 
 .site-brand__logo {
   display: block;
-  width: clamp(142px, 12.5vw, 208px);
-  height: auto;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
   object-fit: contain;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  filter: none;
+  object-position: left center;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: normal;
+  transform-origin: left center;
 }
 
 .site-brand:focus-visible {

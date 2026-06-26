@@ -24,6 +24,20 @@ function setLayerState(section, layers, activeIndex) {
 
     layer.classList.toggle("is-active", isActive);
     layer.setAttribute("aria-pressed", String(isActive));
+    layer.setAttribute("aria-selected", String(isActive));
+  });
+}
+
+function getAbsoluteImageUrl(path) {
+  return new URL(path, window.location.href).href;
+}
+
+function preloadImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = reject;
+    image.src = src;
   });
 }
 
@@ -54,12 +68,60 @@ export function initImmersiveVisual() {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let activeIndex = -1;
   let transitionTimer = 0;
+  let imageTransitionTimer = 0;
+  let imageRequestId = 0;
 
-  const activateLayer = (nextIndex) => {
+  const updateLayerImage = (layer, immediate = false) => {
+    if (!image || !layer?.dataset.image) return;
+
+    const nextSrc = getAbsoluteImageUrl(layer.dataset.image);
+    const nextAlt = layer.dataset.alt || image.alt || "";
+
+    if (image.currentSrc === nextSrc || image.src === nextSrc) {
+      image.alt = nextAlt;
+      return;
+    }
+
+    const requestId = ++imageRequestId;
+
+    preloadImage(nextSrc)
+      .then(() => {
+        if (requestId !== imageRequestId) return;
+
+        window.clearTimeout(imageTransitionTimer);
+
+        if (reducedMotion || immediate) {
+          image.src = nextSrc;
+          image.alt = nextAlt;
+          image.classList.remove("is-changing");
+          return;
+        }
+
+        image.classList.add("is-changing");
+
+        imageTransitionTimer = window.setTimeout(() => {
+          if (requestId !== imageRequestId) return;
+
+          image.src = nextSrc;
+          image.alt = nextAlt;
+
+          window.requestAnimationFrame(() => {
+            image.classList.remove("is-changing");
+          });
+        }, 180);
+      })
+      .catch(() => {
+        image.classList.remove("is-changing");
+        console.warn("[ImmersiveVisual] No se pudo cargar la imagen:", nextSrc);
+      });
+  };
+
+  const activateLayer = (nextIndex, options = {}) => {
     if (nextIndex === activeIndex) return;
 
     activeIndex = nextIndex;
     setLayerState(section, layers, activeIndex);
+    updateLayerImage(layers[activeIndex], options.immediate);
 
     section.classList.add("is-visual-transitioning");
     window.clearTimeout(transitionTimer);
@@ -94,6 +156,7 @@ export function initImmersiveVisual() {
     });
   });
 
+  activateLayer(0, { immediate: true });
   update();
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update, { passive: true });
