@@ -1,4 +1,4 @@
-import { initAnimations } from "./modules/animations.js";
+import { initAnimations, initHeroIntroAnimation } from "./modules/animations.js";
 import { initNavigation } from "./modules/navigation.js";
 import { initInteractions } from "./modules/interactions.js";
 import { initImmersiveVisual } from "./modules/immersive-visual.js";
@@ -17,6 +17,7 @@ function safeInit(name, initializer) {
 }
 
 function bootstrap() {
+  safeInit("HeroIntro", initHeroIntroAnimation);
   safeInit("Animations", initAnimations);
   safeInit("Navigation", initNavigation);
   safeInit("Interactions", initInteractions);

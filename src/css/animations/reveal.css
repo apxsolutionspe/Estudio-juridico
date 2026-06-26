@@ -107,7 +107,10 @@ html.js-enabled .hero-title.js-reveal-target.is-visible,
 html.js-enabled .hero-title.js-reveal-target.is-animated,
 html.js-enabled .hero-title span.js-reveal-target.is-visible,
 html.js-enabled .hero-title span.js-reveal-target.is-animated {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
+  will-change: auto;
 }
 
 html.js-enabled .hero-video.js-reveal-target.is-visible,

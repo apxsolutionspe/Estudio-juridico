@@ -79,7 +79,11 @@ function inferAnimationType(element) {
 }
 
 function getDelay(element, index) {
-  if (element.matches(".hero-title span")) return Math.min(index * 90, 360);
+  if (element.matches(".hero-title")) return 120;
+  if (element.matches(".hero-title span")) {
+    const spanIndex = Array.from(element.parentElement?.children || []).indexOf(element);
+    return 180 + Math.max(spanIndex, 0) * 120;
+  }
   if (element.matches(CARD_SELECTOR)) return Math.min(index * 55, 520);
   if (element.matches(".btn, .mini-btn, .nav-cta")) return Math.min(index * 35, 280);
 
@@ -183,6 +187,19 @@ function startAnimations() {
     requestAnimationFrame(() => {
       observeElements(elements);
       logState(elements, reducedMotion);
+    });
+  });
+}
+
+export function initHeroIntroAnimation() {
+  const hero = document.querySelector(".hero, .hero-section, [data-hero]");
+  if (!hero) return;
+
+  document.documentElement.classList.add("js-enabled");
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      hero.classList.add("is-hero-ready");
     });
   });
 }

@@ -28,3 +28,5 @@
 @import url("./animations/reveal.css");
 @import url("./animations/hover.css");
 @import url("./animations/motion.css");
+
+@import url("./components/interactive-contrast.css");

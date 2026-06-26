@@ -207,6 +207,41 @@
     0 0 18px rgba(226, 195, 124, 0.14);
 }
 
+html.js-enabled .hero .hero-signature,
+html.js-enabled .hero .hero-subtitle {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  filter: blur(4px);
+  transition:
+    opacity 900ms var(--ease-premium),
+    transform 900ms var(--ease-premium),
+    filter 900ms var(--ease-premium);
+  will-change: opacity, transform, filter;
+}
+
+html.js-enabled .hero.is-hero-ready .hero-signature {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  transition-delay: 520ms;
+  will-change: auto;
+}
+
+html.js-enabled .hero.is-hero-ready .hero-subtitle {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  transition-delay: 680ms;
+  will-change: auto;
+}
+
+html:not(.js-enabled) .hero .hero-signature,
+html:not(.js-enabled) .hero .hero-subtitle {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
 @keyframes heroTitleReveal {
   to {
     opacity: 1;
@@ -216,11 +251,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:not(.force-motion) .hero-title span {
+  html:not(.force-motion) .hero-title span,
+  html:not(.force-motion) .hero .hero-signature,
+  html:not(.force-motion) .hero .hero-subtitle {
     opacity: 1;
     transform: none;
     filter: none;
     animation: none;
+    transition: none;
+  }
+
+  .hero .hero-signature,
+  .hero .hero-subtitle {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
   }
 }
 

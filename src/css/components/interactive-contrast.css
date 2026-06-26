@@ -1,0 +1,150 @@
+/* Contrast safeguards for interactive states.
+   Keep this file last in the cascade so hover/focus colors stay readable. */
+
+:where(
+  .btn,
+  .mini-btn,
+  .nav-cta,
+  .services-toggle,
+  .legal-areas-toggle,
+  .immersive-layer,
+  .service-card__link,
+  .footer-cta-link,
+  .contact-whatsapp-btn,
+  .whatsapp-float,
+  .to-top
+):focus-visible {
+  outline: 3px solid rgba(11, 79, 216, 0.28);
+  outline-offset: 4px;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible,
+.nav-cta:active {
+  background: #ffffff;
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.9);
+  text-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.btn-primary:active,
+.contact-form .btn-primary:hover,
+.contact-form .btn-primary:focus-visible,
+.contact-form .btn-primary:active,
+.mini-btn:hover,
+.mini-btn:focus-visible,
+.mini-btn:active,
+.services-showcase .service-card__link:hover,
+.services-showcase .service-card__link:focus-visible,
+.services-showcase .service-card__link:active,
+.services-showcase .service-card--interactive:hover .service-card__link,
+.services-showcase .service-card--interactive:focus-within .service-card__link,
+.services-showcase .service-card--interactive.is-open .service-card__link {
+  background: var(--color-text-primary);
+  color: var(--color-accent-contrast);
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+.btn-secondary:not(.contact-whatsapp-btn):hover,
+.btn-secondary:not(.contact-whatsapp-btn):focus-visible,
+.btn-secondary:not(.contact-whatsapp-btn):active,
+.contact-info .btn-secondary:not(.contact-whatsapp-btn):hover,
+.contact-info .btn-secondary:not(.contact-whatsapp-btn):focus-visible,
+.contact-info .btn-secondary:not(.contact-whatsapp-btn):active,
+.services-toggle:hover,
+.services-toggle:focus-visible,
+.services-toggle:active,
+.legal-areas-toggle:hover,
+.legal-areas-toggle:focus-visible,
+.legal-areas-toggle:active,
+.immersive-layer:hover,
+.immersive-layer:focus-visible,
+.immersive-layer.is-active {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.92)),
+    #ffffff;
+  color: var(--color-accent);
+  border-color: rgba(11, 79, 216, 0.28);
+}
+
+.immersive-layer.is-active strong,
+.immersive-layer:hover strong,
+.immersive-layer:focus-visible strong {
+  color: var(--color-text-primary);
+}
+
+.immersive-layer.is-active span {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border-color: rgba(11, 79, 216, 0.24);
+}
+
+.contact-info .contact-whatsapp-btn:hover,
+.contact-info .contact-whatsapp-btn:focus-visible,
+.contact-info .contact-whatsapp-btn:active {
+  background: linear-gradient(135deg, #075e54 0%, #128c7e 38%, #25d366 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible,
+.whatsapp-float:active,
+.to-top:hover,
+.to-top:focus-visible,
+.to-top:active {
+  background:
+    radial-gradient(circle at 32% 18%, rgba(47, 125, 246, 0.38), transparent 38%),
+    rgba(3, 7, 18, 0.94);
+  color: #f8fafc;
+}
+
+.legal-area-card:hover .legal-area-card__cta,
+.legal-area-card:focus-within .legal-area-card__cta,
+.legal-area-card.is-open .legal-area-card__cta,
+.card a:hover,
+.card a:focus-visible,
+.card button:hover,
+.card button:focus-visible,
+.wide-card a:hover,
+.wide-card a:focus-visible,
+.flip-card-back a:hover,
+.flip-card-back a:focus-visible {
+  color: var(--color-accent);
+}
+
+.footer-grid a:not(.brand):not(.footer-cta-link):hover,
+.footer-grid a:not(.brand):not(.footer-cta-link):focus-visible,
+.footer-grid a:not(.brand):not(.footer-cta-link):active,
+.footer-legal a:hover,
+.footer-legal a:focus-visible,
+.footer-legal a:active {
+  color: rgba(103, 232, 249, 0.95);
+}
+
+.site-footer .footer-cta-link:hover,
+.site-footer .footer-cta-link:focus-visible,
+.site-footer .footer-cta-link:active {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: var(--color-text-primary) !important;
+  border-color: rgba(255, 255, 255, 0.74) !important;
+  text-shadow: none;
+}
+
+.contact-social a:hover,
+.contact-social a:focus-visible,
+.contact-social a:active {
+  background: #ffffff;
+  color: var(--color-accent);
+  border-color: rgba(11, 79, 216, 0.28);
+}
+
+.footer-socials .social-link:hover,
+.footer-socials .social-link:focus-visible,
+.footer-socials .social-link:active {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text-primary);
+  border-color: rgba(103, 232, 249, 0.48);
+}
