@@ -15,6 +15,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      document.documentElement.classList.add("js-enabled", "force-motion");
+    </script>
     <link rel="stylesheet" href="./src/css/main.css" />
   </head>
   <body>
@@ -22,10 +25,16 @@
 
     <header class="site-header" id="top">
       <nav class="container navbar" aria-label="Navegación principal">
-        <a class="brand" href="#inicio" aria-label="Estudio Jurídico Erika">
-          <span class="brand-logo">EJ</span>
-          <span class="brand-divider"></span>
-          <span class="brand-name">Estudio Jurídico Erika</span>
+        <a class="brand site-brand" href="#inicio" aria-label="Inicio - Estudio Jurídico Erika">
+          <img
+            class="site-brand__logo"
+            src="./assets/images/logo-erika-white.png"
+            alt="Logo Erika Menor Pardo Estudio Jurídico"
+            width="1190"
+            height="290"
+            loading="eager"
+            decoding="async"
+          />
         </a>
 
         <div class="nav-menu" id="nav-menu" data-main-nav>
@@ -55,18 +64,24 @@
 
     <main>
       <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="./assets/images/hero-poster.png">
+        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="./assets/images/oficina-legal.webp">
           <source src="./assets/videos/legal-hero.mp4" type="video/mp4" />
         </video>
         <div class="hero-overlay" aria-hidden="true"></div>
 
         <div class="hero-content">
-          <h1 id="hero-title" class="hero-title" aria-label="Asesoría legal moderna, estratégica y confiable">
-            <span>Asesoría legal</span>
-            <span>moderna,</span>
-            <span>estratégica y</span>
-            <span>confiable</span>
-          </h1>
+          <div class="hero-copy" aria-label="Presentación principal del Estudio Jurídico Erika">
+            <p class="hero-kicker"></p>
+            <h1 id="hero-title" class="hero-title" aria-label="Asesoría legal moderna, estratégica y confiable">
+              <span>Asesoría legal moderna,</span>
+              <span>estratégica y confiable</span>
+            </h1>
+            <div class="hero-divider" aria-hidden="true">
+              <span></span>
+            </div>
+            <p class="hero-signature">ESTUDIO JURÍDICO</p>
+            <p class="hero-subtitle">Soluciones jurídicas personalizadas para proteger lo que más te importa.</p>
+          </div>
         </div>
       </section>
 
@@ -83,8 +98,10 @@
           <figure class="immersive-visual-stage slide-item motion-image reveal-scale" aria-label="Visualización profesional del estudio" data-immersive-visual>
             <img
               class="immersive-visual-image"
-              src="./assets/images/legal-office-1.png"
-              alt="Espacio profesional del Estudio Jurídico Erika"
+              src="./assets/images/proceso-legal.jpg"
+              alt="Proceso de atención legal profesional"
+              width="656"
+              height="436"
               loading="lazy"
               decoding="async"
             />
@@ -117,7 +134,7 @@
           <div class="benefit-grid">
             <article class="feature-card benefit-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Atención personalizada">
               <div class="benefit-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/oficina-legal.webp" alt="Oficina legal moderna y profesional" width="736" height="736" loading="lazy" decoding="async" />
               </div>
               <div class="benefit-card__content">
                 <span class="benefit-card__icon" aria-hidden="true">
@@ -133,7 +150,7 @@
             </article>
             <article class="feature-card benefit-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Confidencialidad garantizada">
               <div class="benefit-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-2.png" alt="" loading="lazy" />
+                <img src="./assets/images/documentos-legales.jpg" alt="Documentos legales y contratos jurídicos" width="735" height="490" loading="lazy" decoding="async" />
               </div>
               <div class="benefit-card__content">
                 <span class="benefit-card__icon" aria-hidden="true">
@@ -149,7 +166,7 @@
             </article>
             <article class="feature-card benefit-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Estrategia jurídica clara">
               <div class="benefit-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-3.png" alt="" loading="lazy" />
+                <img src="./assets/images/justicia-balanza.jpg" alt="Balanza de justicia y asesoría legal" width="604" height="906" loading="lazy" decoding="async" />
               </div>
               <div class="benefit-card__content">
                 <span class="benefit-card__icon" aria-hidden="true">
@@ -165,7 +182,7 @@
             </article>
             <article class="feature-card benefit-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Seguimiento constante">
               <div class="benefit-card__media" aria-hidden="true">
-                <img src="./assets/images/hero-poster.png" alt="" loading="lazy" />
+                <img src="./assets/images/proceso-legal.jpg" alt="Proceso de atención legal profesional" width="656" height="436" loading="lazy" decoding="async" />
               </div>
               <div class="benefit-card__content">
                 <span class="benefit-card__icon" aria-hidden="true">
@@ -214,7 +231,7 @@
 
           <div class="about-leader__visual">
             <figure class="image-panel image-frame about-leader__media slide-item motion-image reveal-right">
-              <img src="./assets/images/legal-office-1.png" alt="Oficina moderna del Estudio Jurídico Erika" loading="lazy" />
+              <img src="./assets/images/escritorio-juridico.jpg" alt="Escritorio jurídico profesional" width="736" height="736" loading="lazy" decoding="async" />
             </figure>
           </div>
         </div>
@@ -230,7 +247,7 @@
           <div class="legal-area-grid slide-item motion-item reveal-up" id="legal-areas-grid" aria-label="Áreas legales disponibles" data-expandable-grid>
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho civil">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-civil.jpg" alt="Asesoría en derecho civil" width="736" height="736" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -249,7 +266,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho familiar">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-2.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-familiar.jpg" alt="Asesoría en derecho familiar" width="736" height="486" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -267,7 +284,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho empresarial">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-3.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-empresarial.jpg" alt="Asesoría en derecho empresarial" width="735" height="490" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -288,7 +305,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Conciliación extrajudicial">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/hero-poster.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-conciliacion.jpg" alt="Servicio de conciliación legal" width="1122" height="1122" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -306,7 +323,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Asesoría contractual">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-contratos.jpg" alt="Elaboración y revisión de contratos" width="1024" height="1024" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -326,7 +343,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Defensa legal">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-2.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-penal.jpg" alt="Defensa y asesoría en derecho penal" width="847" height="567" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -343,7 +360,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho laboral">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-3.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-laboral.jpg" alt="Asesoría en derecho laboral" width="1200" height="675" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -362,7 +379,7 @@
 
             <article class="legal-area-card legal-area-card--interactive stagger-item" tabindex="0" aria-label="Derecho administrativo">
               <div class="legal-area-card__media" aria-hidden="true">
-                <img src="./assets/images/hero-poster.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-tramites-legales.jpg" alt="Gestión de trámites legales" width="686" height="980" loading="lazy" decoding="async" />
               </div>
               <div class="legal-area-card__content">
                 <span class="legal-area-card__icon" aria-hidden="true">
@@ -400,7 +417,7 @@
           <div class="services-grid" id="services-grid" data-expandable-services-grid>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Consulta legal inicial">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-asesoria-legal.jpg" alt="Servicio de asesoría legal personalizada" width="960" height="720" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -418,7 +435,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Revisión de documentos">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-2.png" alt="" loading="lazy" />
+                <img src="./assets/images/documentos-legales.jpg" alt="Documentos legales y contratos jurídicos" width="735" height="490" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -438,7 +455,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Redacción de contratos">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-3.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-contratos.jpg" alt="Elaboración y revisión de contratos" width="1024" height="1024" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -457,7 +474,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Demanda de alimentos">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/hero-poster.png" alt="" loading="lazy" />
+                <img src="./assets/images/area-derecho-familiar.jpg" alt="Asesoría en derecho familiar" width="736" height="486" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -475,7 +492,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Asesoría en divorcio">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-conciliacion.jpg" alt="Servicio de conciliación legal" width="1122" height="1122" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -492,7 +509,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Defensa legal">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-2.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-defensa-legal.jpg" alt="Servicio de defensa legal" width="1000" height="667" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -509,7 +526,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Seguimiento de expediente">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-3.png" alt="" loading="lazy" />
+                <img src="./assets/images/proceso-legal.jpg" alt="Proceso de atención legal profesional" width="656" height="436" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -529,7 +546,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Carta notarial">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/hero-poster.png" alt="" loading="lazy" />
+                <img src="./assets/images/documentos-legales.jpg" alt="Documentos legales y contratos jurídicos" width="735" height="490" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -547,7 +564,7 @@
             </article>
             <article class="service-card service-card--interactive slide-item motion-card reveal-up stagger-item" tabindex="0" aria-label="Constitución de empresa">
               <div class="service-card__media" aria-hidden="true">
-                <img src="./assets/images/legal-office-1.png" alt="" loading="lazy" />
+                <img src="./assets/images/servicio-tramites-legales.jpg" alt="Gestión de trámites legales" width="686" height="980" loading="lazy" decoding="async" />
               </div>
               <div class="service-card__content">
                 <span class="service-card__icon" aria-hidden="true">
@@ -619,7 +636,7 @@
             <article class="flip-card visual-large slide-item motion-image reveal-scale stagger-item" tabindex="0" role="button" aria-label="Girar tarjeta: Atención estratégica">
               <div class="flip-card-inner">
                 <div class="flip-card-face flip-card-front">
-                  <img src="./assets/images/legal-office-1.png" alt="Recepción moderna de un estudio jurídico" loading="lazy" />
+                  <img src="./assets/images/oficina-legal.webp" alt="Oficina legal moderna y profesional" width="736" height="736" loading="lazy" decoding="async" />
                   <h3>Atención estratégica</h3>
                 </div>
                 <div class="flip-card-face flip-card-back">
@@ -633,7 +650,7 @@
             <article class="flip-card visual-small slide-item motion-image reveal-scale stagger-item" tabindex="0" role="button" aria-label="Girar tarjeta: Consulta confidencial">
               <div class="flip-card-inner">
                 <div class="flip-card-face flip-card-front">
-                  <img src="./assets/images/legal-office-2.png" alt="Sala de consulta privada para asesoría legal" loading="lazy" />
+                  <img src="./assets/images/escritorio-juridico.jpg" alt="Escritorio jurídico profesional" width="736" height="736" loading="lazy" decoding="async" />
                   <h3>Consulta confidencial</h3>
                 </div>
                 <div class="flip-card-face flip-card-back">
@@ -647,7 +664,7 @@
             <article class="flip-card visual-small slide-item motion-image reveal-scale stagger-item" tabindex="0" role="button" aria-label="Girar tarjeta: Revisión documental">
               <div class="flip-card-inner">
                 <div class="flip-card-face flip-card-front">
-                  <img src="./assets/images/legal-office-3.png" alt="Escritorio organizado para revisión de documentos legales" loading="lazy" />
+                  <img src="./assets/images/documentos-legales.jpg" alt="Documentos legales y contratos jurídicos" width="735" height="490" loading="lazy" decoding="async" />
                   <h3>Revisión documental</h3>
                 </div>
                 <div class="flip-card-face flip-card-back">

@@ -18,6 +18,34 @@
   color: var(--white);
 }
 
+.site-brand {
+  flex-shrink: 0;
+  justify-content: flex-start;
+  gap: 0;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.site-brand__logo {
+  display: block;
+  width: clamp(142px, 12.5vw, 208px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+.site-brand:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.36);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
 .brand-logo,
 .brand-mark {
   display: inline-grid;

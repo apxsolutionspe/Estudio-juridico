@@ -1,5 +1,5 @@
 const DEBUG_ANIMATIONS = false;
-const FORCE_MOTION_FOR_PREVIEW = false;
+const FORCE_MOTION_FOR_PREVIEW = true;
 
 const REVEAL_SELECTOR = [
   "[data-animate]",
@@ -87,6 +87,8 @@ function getDelay(element, index) {
 }
 
 function revealElement(element) {
+  if (element.classList.contains("is-visible")) return;
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       element.classList.add("is-visible");
@@ -136,8 +138,8 @@ function observeElements(elements) {
       });
     },
     {
-      threshold: 0.08,
-      rootMargin: "0px 0px 80px 0px"
+      threshold: 0.14,
+      rootMargin: "0px 0px -8% 0px"
     }
   );
 
@@ -146,11 +148,11 @@ function observeElements(elements) {
   window.setTimeout(() => {
     elements.forEach((element) => {
       const rect = element.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+      if (rect.top < window.innerHeight * 0.82 && rect.bottom > 0) {
         revealElement(element);
       }
     });
-  }, 180);
+  }, 360);
 }
 
 function startAnimations() {

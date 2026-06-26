@@ -6,6 +6,8 @@
   padding-block: clamp(5.25rem, 9vw, 8.25rem);
   color: var(--color-text-primary);
   background:
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(244, 247, 251, 0.94)),
+    url("../../assets/images/proceso-legal.jpg") center / cover no-repeat,
     radial-gradient(circle at 50% 0%, rgba(11, 79, 216, 0.105), transparent 32rem),
     radial-gradient(circle at 9% 24%, rgba(15, 23, 42, 0.045), transparent 24rem),
     radial-gradient(circle at 92% 70%, rgba(11, 79, 216, 0.05), transparent 26rem),
