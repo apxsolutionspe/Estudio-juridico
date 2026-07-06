@@ -8,6 +8,7 @@
   .services-toggle,
   .legal-areas-toggle,
   .immersive-layer,
+  .legal-area-card__cta,
   .service-card__link,
   .footer-cta-link,
   .contact-whatsapp-btn,
@@ -42,9 +43,20 @@
 .services-showcase .service-card--interactive:hover .service-card__link,
 .services-showcase .service-card--interactive:focus-within .service-card__link,
 .services-showcase .service-card--interactive.is-open .service-card__link {
-  background: var(--color-text-primary);
-  color: var(--color-accent-contrast);
-  border-color: rgba(15, 23, 42, 0.16);
+  background: #ffffff;
+  color: var(--color-accent);
+  border-color: rgba(11, 79, 216, 0.18);
+}
+
+.services-showcase .service-card__link:hover,
+.services-showcase .service-card__link:focus-visible,
+.services-showcase .service-card__link:active,
+.legal-area-card__cta:hover,
+.legal-area-card__cta:focus-visible,
+.legal-area-card__cta:active {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }
 
 .btn-secondary:not(.contact-whatsapp-btn):hover,
@@ -113,6 +125,14 @@
 .flip-card-back a:hover,
 .flip-card-back a:focus-visible {
   color: var(--color-accent);
+}
+
+.legal-area-card__cta:hover,
+.legal-area-card__cta:focus-visible,
+.legal-area-card__cta:active {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }
 
 .footer-grid a:not(.brand):not(.footer-cta-link):hover,
